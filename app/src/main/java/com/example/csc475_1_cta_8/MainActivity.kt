@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
@@ -25,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("TaskPrefs", Context.MODE_PRIVATE)
         print(sharedPreferences.all.values)
         setContentView(R.layout.activity_main)
+
+        val timestamp = System.currentTimeMillis()
+        val date = Date(timestamp)
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        selectedDate = sdf.format(date)
 
         val calendarView: CalendarView = findViewById(R.id.calendarView)
         val addTaskButton: Button = findViewById(R.id.addTaskButton)

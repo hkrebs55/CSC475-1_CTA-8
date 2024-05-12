@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.gson.Gson
 import com.google.gson.JsonArray;
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import java.util.UUID
 
 class AddTaskActivity : AppCompatActivity() {
@@ -22,11 +25,14 @@ class AddTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_task)
         sharedPreferences = getSharedPreferences("TaskPrefs", Context.MODE_PRIVATE)
-        var selectedDate = ""
+        val timestamp = System.currentTimeMillis()
+        val date = Date(timestamp)
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        var selectedDate = sdf.format(date)
         var taskName = ""
         var taskDescription = ""
 
-        findViewById<CalendarView>(R.id.calendarView).setOnDateChangeListener { _, year, month, dayOfMonth ->
+        findViewById<CalendarView>(R.id.calendarViewAddTask).setOnDateChangeListener { _, year, month, dayOfMonth ->
             selectedDate = "$dayOfMonth/${month + 1}/$year"
         }
 

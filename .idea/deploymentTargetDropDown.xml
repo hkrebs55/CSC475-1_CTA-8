@@ -5,6 +5,9 @@
       <entry key="MainActivity">
         <State />
       </entry>
+      <entry key="MainActivityTest">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -20,6 +23,12 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2024-05-12T20:23:13.079034800Z" />
         </State>
+      </entry>
+      <entry key="clickAddTaskButtonAddTaskNoInfoThenBack()">
+        <State />
+      </entry>
+      <entry key="clickAddTaskButtonAddTaskThenSave()">
+        <State />
       </entry>
     </value>
   </component>
